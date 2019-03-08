@@ -49,38 +49,63 @@ def view_balance():
 
 
 
-def withdraw():
+# def withdraw():
+#     print()
+#     # withdraw_amount = input('How much would you like to withdraw? ')
+#     try:
+#         withdraw_amount = input('How much would you like to withdraw? ')
+#     except:
+#         print()
+#         print('What you entered was not a valid number. Try again.')
+#         print()
+#         display_menu()
+#     try:
+#         withdrawal = float(withdraw_amount)
+#     except:
+#         print()
+#         print('What you entered was not a valid number. Try again.')
+#         print()
+#         display_menu()
+#     with open('project_data.txt', 'a+') as f:
+#         f.write('-'+str(withdrawal)+'\n')
+#     print()
+#     print('Transaction recorded.')
+#     display_menu()
+
+
+def deposit():
     print()
-    # withdraw_amount = input('How much would you like to withdraw? ')
     try:
-        withdraw_amount = input('How much would you like to withdraw? ')
+        deposit_amount = input('How much would you like to deposit? ')
     except:
         print()
         print('What you entered was not a valid number. Try again.')
         print()
         display_menu()
     try:
-        withdrawal = float(withdraw_amount)
+        deposit = float(deposit_amount)
     except:
         print()
         print('What you entered was not a valid number. Try again.')
         print()
         display_menu()
     with open('project_data.txt', 'a+') as f:
-        f.write('-'+str(withdrawal)+'\n')
+        f.write('+'+str(deposit)+'\n')
     print()
     print('Transaction recorded.')
     display_menu()
 
 
-def deposit():
-    print('deposit invoked')
-    pass
+# def record_transaction(withdrawal):
+#     with open('project_data.txt', 'a+') as f:
+#         f.write('-'+str(withdrawal)+'\n\n')
+#     print()
+#     print('Transaction recorded.')
+#     display_menu()
 
-
-def record_transaction(withdrawal):
+def record_transaction(deposit):
     with open('project_data.txt', 'a+') as f:
-        f.write('-'+str(withdrawal)+'\n\n')
+        f.write('+'+str(deposit)+'\n\n')
     print()
     print('Transaction recorded.')
     display_menu()
@@ -90,7 +115,6 @@ def exit_program():
     print('Exiting. Thank you, goodbye!')
     print()
     sys.exit()
-
 
 welcome()
 display_menu()
