@@ -1,6 +1,9 @@
 
 import sys
 
+CURRENT_BALANCE = 0
+
+
 def welcome():
     print('******* Welcome to your checkbook *******')
     
@@ -30,36 +33,51 @@ def display_menu():
         display_menu()
 
 def view_balance():
+    clean_credits = 0
+    clean_debits = 0
     with open('project_data.txt') as f:
         transactions = f.read().split('\n')
         for item in transactions:
             if item.startswith('+'):
-                print('credit +')
-            else:
-                print('debit -')
+                clean_credits += float(item.strip('+'))
+                # print(clean_credits)
+                #CURRENT_BALANCE += float(item.strip('+'))
+                # sum_clean_credits = sum(clean_credits)
+                # print(sum_clean_credits)
+            elif item.startswith('-'):
+                clean_debits += float(item.strip('-'))
+                # print(clean_debits)
+    CURRENT_BALANCE = clean_credits - clean_debits
+    print()
+    final_balance = '${:,.2f}'.format(CURRENT_BALANCE)
+    print('Your current balance is:', final_balance)
+    print()
+    display_menu()
 
-# def withdraw():
-#     print()
-#     # withdraw_amount = input('How much would you like to withdraw? ')
-#     try:
-#         withdraw_amount = input('How much would you like to withdraw? ')
-#     except:
-#         print()
-#         print('What you entered was not a valid number. Try again.')
-#         print()
-#         display_menu()
-#     try:
-#         withdrawal = float(withdraw_amount)
-#     except:
-#         print()
-#         print('What you entered was not a valid number. Try again.')
-#         print()
-#         display_menu()
-#     with open('project_data.txt', 'a+') as f:
-#         f.write('-'+str(withdrawal)+'\n')
-#     print()
-#     print('Transaction recorded.')
-#     display_menu()
+#print(CURRENT_BALANCE)
+
+def withdraw():
+    print()
+    # withdraw_amount = input('How much would you like to withdraw? ')
+    try:
+        withdraw_amount = input('How much would you like to withdraw? ')
+    except:
+        print()
+        print('What you entered was not a valid number. Try again.')
+        print()
+        display_menu()
+    try:
+        withdrawal = float(withdraw_amount)
+    except:
+        print()
+        print('What you entered was not a valid number. Try again.')
+        print()
+        display_menu()
+    with open('project_data.txt', 'a+') as f:
+        f.write('-'+str(withdrawal)+'\n')
+    print()
+    print('Transaction recorded.')
+    display_menu()
 
 
 def deposit():
@@ -92,12 +110,12 @@ def deposit():
 #     print('Transaction recorded.')
 #     display_menu()
 
-def record_transaction(deposit):
-    with open('project_data.txt', 'a+') as f:
-        f.write('+'+str(deposit)+'\n\n')
-    print()
-    print('Transaction recorded.')
-    display_menu()
+# def record_transaction(deposit):
+#     with open('project_data.txt', 'a+') as f:
+#         f.write('+'+str(deposit)+'\n\n')
+#     print()
+#     print('Transaction recorded.')
+#     display_menu()
 
 def exit_program():
     print()
