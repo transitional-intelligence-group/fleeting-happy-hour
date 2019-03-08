@@ -14,7 +14,6 @@ def display_menu():
     4) exit
     ''')
 
-    pass
 def view_balance():
     pass
 def withdraw(money):
@@ -23,7 +22,7 @@ def deposit():
     pass
 
 welcome()
-dislay_menu()
+display_menu()
 while True:
     if user_input == '1':
         view_balance()
