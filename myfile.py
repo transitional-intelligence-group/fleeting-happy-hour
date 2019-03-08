@@ -29,25 +29,14 @@ def display_menu():
         print()
         display_menu()
 
-# def view_balance():
-#     with open('project_data.txt') as f:
-#         balance = f.read().split('\n')
-#         for line in balance:
-#             if line.startswith('+'):
-#                 line.strip([+])
-#         new_bal = [int(line) for line in balance]
-
-#         print(sum(balance))
-
-# view_balance()
-
-
-
 def view_balance():
-    print('view_balance invoked.')
-    pass
-
-
+    with open('project_data.txt') as f:
+        transactions = f.read().split('\n')
+        for item in transactions:
+            if item.startswith('+'):
+                print('credit +')
+            else:
+                print('debit -')
 
 def withdraw():
     print()
