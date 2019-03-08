@@ -62,27 +62,27 @@ def view_balance():
 #     display_menu()
 
 
-def deposit():
-    print()
-    try:
-        deposit_amount = input('How much would you like to deposit? ')
-    except:
-        print()
-        print('What you entered was not a valid number. Try again.')
-        print()
-        display_menu()
-    try:
-        deposit = float(deposit_amount)
-    except:
-        print()
-        print('What you entered was not a valid number. Try again.')
-        print()
-        display_menu()
-    with open('project_data.txt', 'a+') as f:
-        f.write('+'+str(deposit)+'\n')
-    print()
-    print('Transaction recorded.')
-    display_menu()
+# def deposit():
+#     print()
+#     try:
+#         deposit_amount = input('How much would you like to deposit? ')
+#     except:
+#         print()
+#         print('What you entered was not a valid number. Try again.')
+#         print()
+#         display_menu()
+#     try:
+#         deposit = float(deposit_amount)
+#     except:
+#         print()
+#         print('What you entered was not a valid number. Try again.')
+#         print()
+#         display_menu()
+#     with open('project_data.txt', 'a+') as f:
+#         f.write('+'+str(deposit)+'\n')
+#     print()
+#     print('Transaction recorded.')
+#     display_menu()
 
 
 # def record_transaction(withdrawal):
@@ -92,12 +92,12 @@ def deposit():
 #     print('Transaction recorded.')
 #     display_menu()
 
-def record_transaction(deposit):
-    with open('project_data.txt', 'a+') as f:
-        f.write('+'+str(deposit)+'\n\n')
-    print()
-    print('Transaction recorded.')
-    display_menu()
+# def record_transaction(deposit):
+#     with open('project_data.txt', 'a+') as f:
+#         f.write('+'+str(deposit)+'\n\n')
+#     print()
+#     print('Transaction recorded.')
+#     display_menu()
 
 def exit_program():
     print()
