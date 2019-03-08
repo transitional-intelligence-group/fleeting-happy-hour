@@ -59,7 +59,7 @@ def withdraw():
         print()
         display_menu()
     try:
-        withdrawal = float(withdraw_amount)
+        withdrawal = float(withdraw_amount.strip('$').replace(',', ''))
     except:
         print()
         print('What you entered was not a valid number. Try again.')
@@ -82,7 +82,7 @@ def deposit():
         print()
         display_menu()
     try:
-        deposit = float(deposit_amount)
+        deposit = float(deposit_amount.strip('$').replace(',', ''))
     except:
         print()
         print('What you entered was not a valid number. Try again.')
