@@ -43,15 +43,6 @@ def display_menu():
 
 
 
-
-
-def withdraw(money):
-    pass
-def deposit():
-    pass
-    
-
-
 def view_balance():
     print('view_balance invoked.')
     pass
@@ -59,7 +50,6 @@ def view_balance():
 
 
 def withdraw():
-    print('withdraw invoked.')
     print()
     # withdraw_amount = input('How much would you like to withdraw? ')
     try:
@@ -77,7 +67,7 @@ def withdraw():
         print()
         display_menu()
     with open('project_data.txt', 'a+') as f:
-        f.write('-'+str(withdrawal)+'\n\n')
+        f.write('-'+str(withdrawal)+'\n')
     print()
     print('Transaction recorded.')
     display_menu()
